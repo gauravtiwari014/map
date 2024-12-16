@@ -1,0 +1,64 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+
+public class HMapTMapSample {
+	
+	HashMap <String,Student> hMap = new HashMap<String,Student>();
+	TreeMap <String,Student> tMap = new TreeMap<String,Student>();
+	
+	public void populateHashMap()
+	{
+		hMap.put("S004",new Student("S004","Kiran Kumar",87));
+		hMap.put("S001",new Student("S001","Suman Kumar",77));
+		hMap.put("S003",new Student("S003","Kishore Kumar",67));
+		hMap.put("S005",new Student("S005","Rajesh Kumar",92));
+		hMap.put("S002",new Student("S002","Rajendr Kumar",86));
+		
+		
+	}
+	public void populateTreehMap()
+	{
+		tMap.put("S004",new Student("S004","Kiran Kumar",87));
+		tMap.put("S001",new Student("S001","Suman Kumar",77));
+		tMap.put("S003",new Student("S003","Kishore Kumar",67));
+		tMap.put("S005",new Student("S005","Rajesh Kumar",92));
+		tMap.put("S002",new Student("S002","Rajendr Kumar",86));
+		
+	}
+	public void fetchHMap()
+	{
+		Set <String> myKeys = hMap.keySet();
+		Iterator <String> KeyIter = myKeys.iterator();	
+	while(KeyIter.hasNext())
+	{
+		String myKey = KeyIter.next();
+		System.out.println("The Value of Key"+myKey +" is :"+hMap.get(myKey));
+	}
+		}
+	public void fetchTMap()
+	{
+		Set <Entry <String,Student>> myEntrySet = tMap.entrySet();
+		Iterator <Entry <String,Student>> entryIter = myEntrySet.iterator();
+		while(entryIter.hasNext())
+		{
+			Entry <String,Student> myEntry = entryIter.next();
+			System.out.println("The Key is :"+myEntry.getKey()+"The Value Object is"+myEntry.getValue());
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		HMapTMapSample hts = new HMapTMapSample();
+		hts.populateHashMap();
+		hts.fetchHMap();
+		System.out.println("-----------TreeMap Data-----------");
+		hts.populateTreehMap();
+		hts.fetchTMap();
+	}
+
+}
